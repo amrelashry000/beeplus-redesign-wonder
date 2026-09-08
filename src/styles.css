@@ -69,25 +69,29 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
+  /* Bee Plus dark honey system */
+  --honey: oklch(0.8 0.164 82.5);
+  --honey-foreground: oklch(0.17 0.017 265);
+  --panel: oklch(0.209 0.017 265.5);
+  --background: oklch(0.163 0.015 265.8);
+  --foreground: oklch(1 0 0);
+  --card: oklch(0.209 0.017 265.5);
+  --card-foreground: oklch(1 0 0);
+  --popover: oklch(0.209 0.017 265.5);
+  --popover-foreground: oklch(1 0 0);
+  --primary: oklch(0.8 0.164 82.5);
+  --primary-foreground: oklch(0.17 0.017 265);
+  --secondary: oklch(0.209 0.017 265.5);
+  --secondary-foreground: oklch(1 0 0);
+  --muted: oklch(0.209 0.017 265.5);
+  --muted-foreground: oklch(0.72 0.012 265);
+  --accent: oklch(0.8 0.164 82.5);
+  --accent-foreground: oklch(0.17 0.017 265);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.8 0.164 82.5);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -146,5 +150,15 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-body);
   }
+}
+
+@keyframes bp-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+
+@utility anim-rise {
+  animation: bp-rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }

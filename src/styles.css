@@ -19,6 +19,12 @@
  */
 
 @theme inline {
+  --color-honey: var(--honey);
+  --color-honey-foreground: var(--honey-foreground);
+  --color-panel: var(--panel);
+  --font-display: "Sora", "Cairo", sans-serif;
+  --font-body: "Manrope", "Cairo", sans-serif;
+
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);

@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { content, type Lang } from "@/lib/beeplus-content";
 import coverageMap from "@/assets/egypt-coverage.jpg";
+import logo from "@/assets/beeplus-logo.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({

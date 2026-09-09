@@ -242,7 +242,7 @@ function Index() {
                     aria-hidden={group === 1 ? "true" : undefined}
                   >
                     {t.partners.items.filter(Boolean).map((partner, index) => {
-                      const PartnerIcon = partnerIcons[index % partnerIcons.length];
+                      const PartnerIcon = partnerIcons[index % partnerIcons.length] ?? Building2;
 
                       return (
                         <div

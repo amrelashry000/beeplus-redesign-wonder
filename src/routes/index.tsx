@@ -1,8 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import { Building2, Droplets, Flame, Fuel, Landmark, Zap } from "lucide-react";
 import { content, type Lang } from "@/lib/beeplus-content";
 import coverageMap from "@/assets/egypt-coverage.jpg";
 import logo from "@/assets/beeplus-logo.png";
+
+const partnerIcons = [Zap, Droplets, Flame, Fuel, Landmark, Building2];
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -226,20 +229,41 @@ function Index() {
 
         {/* PARTNERS */}
         <section id="partners" className="bg-panel border-y border-honey/10">
-          <div className="mx-auto max-w-[1200px] px-6 py-20">
-            <div className="text-xs uppercase tracking-[0.25em] text-foreground/40 mb-8">
+          <div className="py-16 md:py-20">
+            <div className="mx-auto max-w-[1200px] px-6 text-xs uppercase tracking-[0.25em] text-foreground/40 mb-8">
               {t.partners.eyebrow}
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
-              {t.partners.items.map((p) => (
-                <div
-                  key={p}
-                  className="grid place-items-center text-center px-3 h-20 rounded-lg bg-background ring-1 ring-border font-display font-medium text-foreground/60 text-sm hover:ring-honey/40 transition-all"
-                >
-                  {p}
-                </div>
-              ))}
+            <div className="partner-marquee overflow-hidden" dir="ltr">
+              <div className="partner-marquee-track flex w-max items-center hover:[animation-play-state:paused]">
+                {[0, 1].map((group) => (
+                  <div
+                    key={group}
+                    className="flex shrink-0 items-center gap-4 px-2 md:gap-6 md:px-3"
+                    aria-hidden={group === 1 ? "true" : undefined}
+                  >
+                    {t.partners.items.filter(Boolean).map((partner, index) => {
+                      const PartnerIcon = partnerIcons[index % partnerIcons.length] ?? Building2;
+
+                      return (
+                        <div
+                          key={`${group}-${partner}`}
+                          dir={t.dir}
+                          className="group flex h-24 w-52 shrink-0 items-center justify-center gap-4 rounded-lg border border-border bg-background px-5 text-foreground/65 transition-colors hover:border-honey/50 hover:text-foreground md:w-60"
+                        >
+                          <span className="grid size-11 shrink-0 place-items-center rounded-md bg-honey/12 text-honey transition-colors group-hover:bg-honey group-hover:text-honey-foreground">
+                            <PartnerIcon aria-hidden="true" className="size-6" strokeWidth={1.8} />
+                          </span>
+                          <span className="font-display text-sm font-semibold leading-relaxed">
+                            {partner}
+                          </span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                ))}
+              </div>
             </div>
+            <div className="mx-auto mt-8 h-px max-w-[1200px] bg-border" aria-hidden="true" />
           </div>
         </section>
 

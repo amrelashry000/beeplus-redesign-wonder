@@ -162,3 +162,31 @@
 @utility anim-rise {
   animation: bp-rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
+
+@keyframes partner-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.partner-marquee {
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+.partner-marquee-track {
+  animation: partner-marquee 24s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .partner-marquee {
+    overflow-x: auto;
+    mask-image: none;
+  }
+
+  .partner-marquee-track {
+    animation: none;
+  }
+
+  .partner-marquee-track > div[aria-hidden="true"] {
+    display: none;
+  }
+}

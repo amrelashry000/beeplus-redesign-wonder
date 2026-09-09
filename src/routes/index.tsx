@@ -35,19 +35,13 @@ function Index() {
       {/* NAV */}
       <header className="sticky top-0 z-50 bg-background/90 backdrop-blur-sm border-b border-honey/15">
         <div className="mx-auto max-w-[1200px] px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="size-9 grid place-items-center rotate-6 bg-honey text-honey-foreground font-display font-bold text-lg rounded-md">
-              {t.brand.mark}
-            </div>
-            <div className="leading-tight">
-              <div className="font-display font-semibold text-sm tracking-tight">
-                {t.brand.name}
-              </div>
-              <div className="text-[10px] uppercase tracking-[0.2em] text-foreground/40">
-                {t.brand.sub}
-              </div>
-            </div>
-          </div>
+          <a href="#" className="flex items-center">
+            <img
+              src={logo}
+              alt={t.brand.name}
+              className="h-9 w-auto rounded-md ring-1 ring-border"
+            />
+          </a>
           <nav className="hidden md:flex items-center gap-8 text-sm text-foreground/70">
             {t.nav.map((n) => (
               <a key={n.href} href={n.href} className="hover:text-foreground transition-colors">

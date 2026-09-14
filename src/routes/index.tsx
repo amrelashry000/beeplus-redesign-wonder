@@ -4,6 +4,7 @@ import { Building2, Droplets, Flame, Fuel, Landmark, Zap } from "lucide-react";
 import { content, type Lang } from "@/lib/beeplus-content";
 import coverageMap from "@/assets/egypt-coverage.jpg";
 import logo from "@/assets/beeplus-logo.png";
+import posTerminal from "@/assets/pos-terminal.png";
 
 const partnerIcons = [Zap, Droplets, Flame, Fuel, Landmark, Building2];
 
@@ -80,33 +81,45 @@ function Index() {
             <div className="absolute top-1/2 left-1/3 -translate-x-1/2 h-[2px] w-[420px] rotate-[-24deg] bg-honey/30" />
           </div>
           <div className="relative mx-auto max-w-[1200px] px-6 py-24 md:py-32">
-            <div className="max-w-3xl">
-              <div className="anim-rise inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-panel border border-honey/25 text-xs text-honey mb-8">
-                <span className="size-1.5 rounded-full bg-honey" />
-                {t.hero.badge}
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+              <div className="max-w-3xl">
+                <div className="anim-rise inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-panel border border-honey/25 text-xs text-honey mb-8">
+                  <span className="size-1.5 rounded-full bg-honey" />
+                  {t.hero.badge}
+                </div>
+                <h1 className="anim-rise font-display text-balance text-4xl md:text-6xl font-semibold leading-tight tracking-tight [animation-delay:80ms]">
+                  {t.hero.title1}
+                  <br />
+                  <span className="text-honey">{t.hero.title2}</span>
+                </h1>
+                <p className="anim-rise text-pretty text-foreground/60 text-base md:text-lg mt-6 max-w-xl [animation-delay:160ms]">
+                  {t.hero.body}
+                </p>
+                <div className="anim-rise flex flex-wrap items-center gap-4 mt-10 [animation-delay:240ms]">
+                  <a
+                    href="#contact"
+                    className="inline-flex items-center gap-2 py-3 px-5 rounded-lg bg-honey text-honey-foreground text-sm font-semibold hover:bg-honey/90 transition-colors ring-1 ring-honey/40"
+                  >
+                    {t.hero.primary}
+                    <span className="text-base">{t.dir === "rtl" ? "←" : "→"}</span>
+                  </a>
+                  <a
+                    href="#network"
+                    className="inline-flex items-center gap-2 py-3 px-5 rounded-lg border border-foreground/20 text-sm font-semibold text-foreground hover:border-honey/50 transition-colors"
+                  >
+                    {t.hero.secondary}
+                  </a>
+                </div>
               </div>
-              <h1 className="anim-rise font-display text-balance text-4xl md:text-6xl font-semibold leading-tight tracking-tight [animation-delay:80ms]">
-                {t.hero.title1}
-                <br />
-                <span className="text-honey">{t.hero.title2}</span>
-              </h1>
-              <p className="anim-rise text-pretty text-foreground/60 text-base md:text-lg mt-6 max-w-xl [animation-delay:160ms]">
-                {t.hero.body}
-              </p>
-              <div className="anim-rise flex flex-wrap items-center gap-4 mt-10 [animation-delay:240ms]">
-                <a
-                  href="#contact"
-                  className="inline-flex items-center gap-2 py-3 px-5 rounded-lg bg-honey text-honey-foreground text-sm font-semibold hover:bg-honey/90 transition-colors ring-1 ring-honey/40"
-                >
-                  {t.hero.primary}
-                  <span className="text-base">{t.dir === "rtl" ? "←" : "→"}</span>
-                </a>
-                <a
-                  href="#network"
-                  className="inline-flex items-center gap-2 py-3 px-5 rounded-lg border border-foreground/20 text-sm font-semibold text-foreground hover:border-honey/50 transition-colors"
-                >
-                  {t.hero.secondary}
-                </a>
+              <div className="anim-rise relative hidden lg:flex justify-center [animation-delay:320ms]">
+                <div className="absolute -inset-6 rounded-full bg-honey/10 blur-3xl" aria-hidden="true" />
+                <img
+                  src={posTerminal}
+                  alt={t.brand.name}
+                  width={1024}
+                  height={1024}
+                  className="relative w-[340px] xl:w-[400px] aspect-square object-contain drop-shadow-2xl"
+                />
               </div>
             </div>
           </div>
